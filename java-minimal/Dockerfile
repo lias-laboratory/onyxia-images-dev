@@ -1,6 +1,8 @@
 FROM inseefrlab/onyxia-base
 ARG JAVA_VERSION=11
 
+LABEL maintainer="Mickael BARON <baron@ensma.fr>"
+
 SHELL ["/bin/bash", "-c"]
 
 ENV JAVA_HOME=/usr/local/openjdk
