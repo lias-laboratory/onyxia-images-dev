@@ -47,7 +47,7 @@ jobs:
         matrix=$(python utils/generate-matrix.py --input_image ${{ inputs.base_image }} --output_image ${{ inputs.image }} \
                  --java_version_1 ${{ inputs.java_version_1 }} --java_version_2 ${{ inputs.java_version_2 }} \
                  --java_version_3 ${{ inputs.java_version_3 }} \
-                 --dh_orga ${{ secrets.DOCKERHUB_USERNAME }} --images_prefix onyxia )
+                 --dh_orga liaslaboratory --images_prefix onyxia )
         echo $matrix
         echo "matrix={\"include\":$(echo $matrix)}" >> $GITHUB_OUTPUT
 
