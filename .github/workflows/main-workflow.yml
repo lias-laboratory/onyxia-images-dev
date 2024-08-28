@@ -22,7 +22,6 @@ jobs:
       context: java-maven
       base_image: java-minimal
       java_versions: 11,17,20
-      branch: ${{ github.ref }}
     secrets: inherit
   vscode-maven:
     needs: [java-maven]
@@ -33,5 +32,4 @@ jobs:
       test: true
       base_image: java-maven
       java_versions: 11,17,20
-      branch: ${{ github.ref }}
     secrets: inherit
