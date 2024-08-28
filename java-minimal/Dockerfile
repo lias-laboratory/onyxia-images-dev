@@ -3,11 +3,11 @@ ARG JAVA_VERSION=11
 
 SHELL ["/bin/bash", "-c"]
 
-ENV JAVA_HOME /usr/local/openjdk
-ENV PATH $JAVA_HOME/bin:$PATH
+ENV JAVA_HOME=/usr/local/openjdk
+ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Default to UTF-8 file.encoding
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 USER root
 
