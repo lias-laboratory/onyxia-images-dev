@@ -36,15 +36,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_image", type=str)
     parser.add_argument("--output_image", type=str)
-    parser.add_argument("--java_version_1", type=str, nargs="?", const="")
-    parser.add_argument("--java_version_2", type=str, nargs="?", const="")
-    parser.add_argument("--java_version_3", type=str, nargs="?", const="")
     parser.add_argument("--dh_orga", type=str)
     parser.add_argument("--images_prefix", type=str)
+    parser.add_argument("--java_versions", type=str, nargs="?", const="")
 
     args = parser.parse_args()
-    java_versions = [version for version in [args.java_version_1, args.java_version_2, args.java_version_3]
-                       if version]
+
+    if args.java_versions:
+        java_versions = args.java_versions.split(",")
 
     DH_ORGA = args.dh_orga.lower()
     TODAY_DATE = datetime.today().strftime('%Y.%m.%d')

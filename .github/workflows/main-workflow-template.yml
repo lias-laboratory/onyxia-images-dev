@@ -15,15 +15,7 @@ on:
         description: Name of the base image
         required: true
         type: string
-      java_version_1:
-        description: context of docker image
-        required: false
-        type: string
-      java_version_2:
-        description: context of docker image
-        required: false
-        type: string
-      java_version_3:
+      java_versions:
         description: context of docker image
         required: false
         type: string
@@ -45,9 +37,7 @@ jobs:
     - id: set-matrix
       run: |
         matrix=$(python utils/generate-matrix.py --input_image ${{ inputs.base_image }} --output_image ${{ inputs.image }} \
-                 --java_version_1 ${{ inputs.java_version_1 }} --java_version_2 ${{ inputs.java_version_2 }} \
-                 --java_version_3 ${{ inputs.java_version_3 }} \
-                 --dh_orga liaslaboratory --images_prefix onyxia )
+                 --dh_orga liaslaboratory --images_prefix onyxia --java_versions ${{ inputs.java_versions }} )
         echo $matrix
         echo "matrix={\"include\":$(echo $matrix)}" >> $GITHUB_OUTPUT
 

@@ -12,7 +12,5 @@ jobs:
       image: java-minimal
       context: java-minimal
       base_image: base
-      java_version_1: 11
-      java_version_2: 17
-      java_version_3: 20
+      java_versions: 11,17,20
     secrets: inherit
