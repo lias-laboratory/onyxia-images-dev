@@ -4,7 +4,7 @@ import argparse
 from datetime import datetime
 
 
-def generate_matrix(versions, input_image, output_image):
+def generate_matrix(versions, input_image, output_image, version_prefix):
     """
     Generate the build matrix for the given versions and options.
 
@@ -12,6 +12,7 @@ def generate_matrix(versions, input_image, output_image):
         versions (list): A list of version strings (Python or R versions).
         input_image (str): The base image name.
         output_image (str): The output image name.
+        version_prefix (str): A prefix to denote the language version ("py" or "r").
 
     Returns:
         list: A list of dictionaries, each representing a build configuration.
@@ -21,7 +22,8 @@ def generate_matrix(versions, input_image, output_image):
         base = f"{input_image}:latest" if input_image == "base" else f"{input_image}:{version}"
         output = f"{output_image}:{version}"
         version_entry = {"base_image_tag": f"{DH_ORGA}/{args.images_prefix}-{base}",
-                         "output_image_main_tag": f"{DH_ORGA}/{args.images_prefix}-{output}"}
+                         "output_image_main_tag": f"{DH_ORGA}/{args.images_prefix}-{output}",
+                         version_prefix: version}
 
         final_entry = version_entry.copy()
         final_entry["output_image_tags"] = f'{final_entry["output_image_main_tag"]},{final_entry["output_image_main_tag"]}-{TODAY_DATE}'
@@ -60,7 +62,7 @@ if __name__ == "__main__":
     else:
         # Subsequent images, with versioning
         if java_versions:
-            matrix = generate_matrix(java_versions, args.input_image, args.output_image)
+            matrix = generate_matrix(java_versions, args.input_image, args.output_image, "java_version")
 
     matrix_json = json.dumps(matrix)
     print(matrix_json)
