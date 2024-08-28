@@ -29,7 +29,6 @@ jobs:
     with:
       image: vscode-maven
       context: vscode
-      test: true
       base_image: java-maven
       java_versions: 11,17,20
     secrets: inherit
