@@ -23,11 +23,11 @@ jobs:
       base_image: java-minimal
       java_versions: 11,17,20
     secrets: inherit
-  vscode-maven:
+  java-maven-vscode:
     needs: [java-maven]
     uses: ./.github/workflows/main-workflow-template.yml
     with:
-      image: vscode-maven
+      image: java-maven-vscode
       context: vscode
       base_image: java-maven
       java_versions: 11,17,20
