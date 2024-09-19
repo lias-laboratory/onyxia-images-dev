@@ -39,11 +39,14 @@ if __name__ == "__main__":
     parser.add_argument("--dh_orga", type=str)
     parser.add_argument("--images_prefix", type=str)
     parser.add_argument("--java_versions", type=str, nargs="?", const="")
+    parser.add_argument("--ada_versions", type=str, nargs="?", const="")
 
     args = parser.parse_args()
 
     if args.java_versions:
         java_versions = args.java_versions.split(",")
+    if args.ada_versions:
+        ada_versions = args.ada_versions.split(",")
 
     DH_ORGA = args.dh_orga.lower()
     TODAY_DATE = datetime.today().strftime('%Y.%m.%d')
@@ -62,6 +65,8 @@ if __name__ == "__main__":
         # Subsequent images, with versioning
         if java_versions:
             matrix = generate_matrix(java_versions, args.input_image, args.output_image, "java_version")
+        if ada_versions:
+            matrix = generate_matrix(ada_versions, args.input_image, args.output_image, "java_version")
 
     matrix_json = json.dumps(matrix)
     print(matrix_json)

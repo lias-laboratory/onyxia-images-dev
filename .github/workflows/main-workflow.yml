@@ -6,6 +6,43 @@ on:
   #  - cron: '0 1 * * 1'
 
 jobs:
+  # === Ada
+  ada-minimal:
+    uses: ./.github/workflows/main-workflow-template.yml
+    with:
+      image: ada-minimal
+      context: ada-minimal
+      base_image: base
+      ada_versions: 12.3.0
+    secrets: inherit
+  ada-gpr:
+    needs: [ada-minimal]
+    uses: ./.github/workflows/main-workflow-template.yml
+    with:
+      image: ada-gpr
+      context: ada-gpr
+      base_image: ada-minimal
+      ada_versions: 12.3.0 
+    secrets: inherit
+  ada-gpr-alr:
+    needs: [ada-gpr]
+    uses: ./.github/workflows/main-workflow-template.yml
+    with:
+      image: ada-gpr-alr
+      context: ada-gpr-alr
+      base_image: ada-gpr
+      ada_versions: 12.3.0 
+    secrets: inherit
+  ada-gpr-alr-vscode:
+    needs: [ada-gpr-alr]
+    uses: ./.github/workflows/main-workflow-template.yml
+    with:
+      image: ada-gpr-alr-vscode
+      context: vscode
+      base_image: ada-gpr-alr
+      ada_versions: 12.3.0 
+    secrets: inherit
+  # === Java
   java-minimal:
     uses: ./.github/workflows/main-workflow-template.yml
     with:
