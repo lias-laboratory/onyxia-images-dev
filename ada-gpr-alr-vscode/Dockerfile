@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=registryia-ensma.fr/depia-dev/ada-gpr-alr
+ARG BASE_IMAGE=registry-ia.ensma.fr/depia-dev/ada-gpr-alr
 FROM $BASE_IMAGE
 
 LABEL maintainer="Mikky Richard richardm@mikkyrichard.fr"
