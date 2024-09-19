@@ -12,7 +12,8 @@ RUN \
     /opt/alr-2/bin/alr toolchain --select gprbuild
 
 RUN \
-    echo 'export PATH="/opt/alr-2/bin:$PATH"' >> /home/onyxia/.zshrc
+    echo 'export PATH="/opt/alr-2/bin:$PATH"' >> /home/onyxia/.zshrc && \
+    echo 'export PATH="/opt/alr-2/bin:$PATH"' >> /home/onyxia/.bashrc
 RUN \
     echo 'export PS1="🐳 %F{blue}Ada-Alr %f %~ > "' >> /home/onyxia/.zshrc && \
     echo 'export PS1="🐳 %F{blue}Ada-Alr %f %~ > "' >> /home/onyxia/.bashrc
