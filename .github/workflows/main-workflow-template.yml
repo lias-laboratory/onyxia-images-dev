@@ -16,7 +16,11 @@ on:
         required: true
         type: string
       java_versions:
-        description: context of docker image
+        description: Java versions (i.e. 11,19)
+        required: false
+        type: string
+      ada_versions:
+        description: Ada versions (i.e. 12.3)
         required: false
         type: string
 
