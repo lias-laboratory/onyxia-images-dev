@@ -1,7 +1,7 @@
 schemaVersion: "2.0.0"
 metadataTest:
   user: 1000
-  workdir: "/home/onyxia/work"
+  workdir: "/Ada-Workspace"
   exposedPorts: ["8080"]
 fileExistenceTests:
   - name: "user home"
