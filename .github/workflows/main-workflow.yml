@@ -38,7 +38,7 @@ jobs:
     uses: ./.github/workflows/main-workflow-template.yml
     with:
       image: ada-gpr-alr-vscode
-      context: vscode
+      context: ada-gpr-alr-vscode
       base_image: ada-gpr-alr
       ada_versions: 12.3.0 
     secrets: inherit
