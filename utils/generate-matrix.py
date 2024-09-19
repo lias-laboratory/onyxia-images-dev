@@ -69,7 +69,7 @@ if __name__ == "__main__":
         if java_versions is not None and java_versions:
             matrix = generate_matrix(java_versions, args.input_image, args.output_image, "java_version")
         if ada_versions is not None and ada_versions:
-            matrix = generate_matrix(ada_versions, args.input_image, args.output_image, "java_version")
+            matrix = generate_matrix(ada_versions, args.input_image, args.output_image, "ada_version")
 
     matrix_json = json.dumps(matrix)
     print(matrix_json)
