@@ -41,7 +41,7 @@ jobs:
     - id: set-matrix
       run: |
         matrix=$(python utils/generate-matrix.py --input_image ${{ inputs.base_image }} --output_image ${{ inputs.image }} \
-                 --dh_orga liaslaboratory --images_prefix onyxia --java_versions ${{ inputs.java_versions }} )
+                 --dh_orga liaslaboratory --images_prefix onyxia --ada_verisons ${{ inputs.ada_versions }} --java_versions ${{ inputs.java_versions }} )
         echo $matrix
         echo "matrix={\"include\":$(echo $matrix)}" >> $GITHUB_OUTPUT
 
