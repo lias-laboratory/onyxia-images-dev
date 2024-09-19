@@ -43,6 +43,9 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    java_versions = None
+    ada_versions = None
+
     if args.java_versions:
         java_versions = args.java_versions.split(",")
     if args.ada_versions:
@@ -63,9 +66,9 @@ if __name__ == "__main__":
             ]
     else:
         # Subsequent images, with versioning
-        if java_versions:
+        if java_versions is not None and java_versions:
             matrix = generate_matrix(java_versions, args.input_image, args.output_image, "java_version")
-        if ada_versions:
+        if ada_versions is not None and ada_versions:
             matrix = generate_matrix(ada_versions, args.input_image, args.output_image, "java_version")
 
     matrix_json = json.dumps(matrix)
